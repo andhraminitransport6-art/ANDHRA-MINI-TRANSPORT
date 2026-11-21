@@ -19,6 +19,36 @@ export const site = {
   hours: "Monday to Sunday, 8:00 AM to 8:00 PM",
 } as const;
 
+export const customerReviews = [
+  {
+    name: "Rohith kumar",
+    role: "Verified Customer",
+    service: "Intercity Relocation (Vizag to Hyderabad)",
+    location: "Visakhapatnam",
+    rating: 5,
+    date: "2026-02-14",
+    text: "Shifted our complete 3BHK household from Visakhapatnam to Hyderabad. The team arrived on time at MVP Colony, packed every fragile item and appliance with multi-layer bubble wrap, and delivered everything safely without a single scratch. Truly professional and trustworthy service!",
+  },
+  {
+    name: "kiran",
+    role: "Verified Customer",
+    service: "Vehicle Transportation (Car & Bike)",
+    location: "Visakhapatnam to Bangalore",
+    rating: 5,
+    date: "2026-01-28",
+    text: "Transported my car and Royal Enfield bike from Vizag to Bangalore. Excellent communication throughout the journey with regular updates on transit status. Both vehicles arrived on schedule with zero damage. Transparent pricing and exceptional customer care.",
+  },
+  {
+    name: "vineel",
+    role: "Verified Customer",
+    service: "Local Household Shifting",
+    location: "Visakhapatnam (Madhurawada)",
+    rating: 5,
+    date: "2026-03-05",
+    text: "Reliable and punctual packers and movers in Vizag. Shifted our home locally within Visakhapatnam. The staff was polite, hardworking, and handled heavy wooden furniture with immense care. Smooth loading and unloading made moving day completely stress-free!",
+  },
+] as const;
+
 export function whatsappLink(
   message = "Hello, I would like a quote for relocation with Andhra Mini Transport.",
 ) {
@@ -84,6 +114,20 @@ export function localBusinessJsonLd(pageName: string) {
       ratingValue: site.rating.value,
       reviewCount: site.rating.reviewCount,
     },
+    review: customerReviews.map((r) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: r.name,
+      },
+      datePublished: r.date,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.rating),
+        bestRating: "5",
+      },
+      reviewBody: r.text,
+    })),
   };
 }
 

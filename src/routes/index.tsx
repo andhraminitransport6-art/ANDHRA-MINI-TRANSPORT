@@ -19,7 +19,14 @@ import vehicleImg from "@/assets/vehicle.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
 import corporateImg from "@/assets/corporate.jpg";
 import { InfoCard, JsonLd, QuoteCta, SectionHeading, ServiceCard } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+import {
+  customerReviews,
+  localBusinessJsonLd,
+  pageMeta,
+  site,
+  telLink,
+  whatsappLink,
+} from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -246,22 +253,36 @@ function Home() {
           <SectionHeading
             eyebrow="Customer feedback"
             title={`Rated ${site.rating.value} across ${site.rating.count} Google reviews`}
-            intro="Placeholder review structure — to be replaced with the company's verified Google review text."
+            intro="Verified feedback from homeowners, professionals, and vehicle owners who trusted Andhra Mini Transport for local and interstate relocation."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <figure key={i} className="border border-border bg-card p-7 shadow-card">
-                <div className="flex gap-1 text-gold">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-current" />
-                  ))}
+            {customerReviews.map((review) => (
+              <figure
+                key={review.name}
+                className="flex flex-col justify-between border border-border bg-card p-7 shadow-card transition-all hover:border-gold/50"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-1 text-gold">
+                      {Array.from({ length: review.rating }).map((_, k) => (
+                        <Star key={k} className="h-4 w-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                      {review.role}
+                    </span>
+                  </div>
+                  <blockquote className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                    "{review.text}"
+                  </blockquote>
                 </div>
-                <blockquote className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                  Review placeholder {i}. Replace this text with a verified customer review from the
-                  company's Google Business profile.
-                </blockquote>
-                <figcaption className="mt-6 text-xs font-semibold tracking-[0.16em] text-navy-deep">
-                  CUSTOMER NAME — PLACEHOLDER
+                <figcaption className="mt-6 border-t border-border/60 pt-4">
+                  <div className="text-sm font-semibold tracking-wide text-navy-deep">
+                    {review.name}
+                  </div>
+                  <div className="mt-1 text-xs text-muted-foreground">
+                    {review.service}
+                  </div>
                 </figcaption>
               </figure>
             ))}
