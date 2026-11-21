@@ -8,7 +8,7 @@ export const site = {
   phoneIntl: "+919440147473",
   whatsappNumber: "919440147473",
   email: "andhraminitransport@gmail.com",
-  website: "https://andhraminitransport.lovable.app",
+  website: "https://www.andhraminitransport.com",
   rating: { value: "5.0", count: "200+", reviewCount: 200 },
   address: {
     street: "Petrol Bunk, beside Isukathota, APGO Colony, Sector 4/2, MVP Colony",
@@ -99,7 +99,7 @@ export function localBusinessJsonLd(pageName: string) {
   return {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
-    "@id": "https://andhraminitransport.lovable.app/#business",
+    "@id": "https://www.andhraminitransport.com/#business",
     name: site.name,
     alternateName: [site.tradingAs, "Andhra Mini Transport", "AMT Packers Movers Vizag"],
     foundingDate: String(site.established),
@@ -254,7 +254,7 @@ export function pageMeta({
   keywords?: string;
   canonicalPath?: string;
 }) {
-  const canonicalUrl = `https://andhraminitransport.lovable.app${canonicalPath}`;
+  const canonicalUrl = `https://www.andhraminitransport.com${canonicalPath}`;
   return {
     meta: [
       { title },

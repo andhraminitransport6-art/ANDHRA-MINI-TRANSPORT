@@ -19,4 +19,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://andhraminitransport.lovable.app/sitemap.xml
+Sitemap: https://www.andhraminitransport.com/sitemap.xml
