@@ -1,17 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { JsonLd, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, JsonLd, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageMeta({
-      title: "Contact Andhra Mini Transport & Travels | MVP Colony, Visakhapatnam",
+      title: "Contact Packers and Movers in Visakhapatnam | Andhra Mini Transport | 09440147473",
       description:
-        "Contact Andhra Mini Transport & Travels for packers and movers in Visakhapatnam. Call 09440147473 or message on WhatsApp. Located in MVP Colony, Vizag.",
+        "Contact Andhra Mini Transport & Travels — Best Packers and Movers in Visakhapatnam. Call or WhatsApp 09440147473 for a free shifting quote. Office at MVP Colony, Vizag. Open 7 days, 8 AM to 8 PM.",
+      keywords:
+        "contact packers movers Visakhapatnam, Andhra Mini Transport phone number, movers address Vizag, moving company contact Visakhapatnam, shifting quote Vizag, packers movers helpline Visakhapatnam",
+      canonicalPath: "/contact",
     }),
   component: Contact,
 });
@@ -29,9 +32,9 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const businessHours = [
-  { day: "Monday – Friday", hours: "8:00 AM – 8:00 PM" },
-  { day: "Saturday", hours: "8:00 AM – 8:00 PM" },
-  { day: "Sunday", hours: "8:00 AM – 8:00 PM" },
+  { day: "Monday â€“ Friday", hours: "8:00 AM â€“ 8:00 PM" },
+  { day: "Saturday", hours: "8:00 AM â€“ 8:00 PM" },
+  { day: "Sunday", hours: "8:00 AM â€“ 8:00 PM" },
 ];
 
 function Contact() {
@@ -59,6 +62,13 @@ function Contact() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Contact")} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Contact Us", url: "/contact" },
+        ])}
+      />
+      <BreadcrumbNav items={[{ label: "Contact Us" }]} />
 
       {/* Hero */}
       <section className="bg-navy-deep pt-32 pb-16">
@@ -81,7 +91,7 @@ function Contact() {
           <div className="space-y-6">
             {/* WhatsApp */}
             <div className="border border-border bg-card p-7 shadow-card">
-              <h3 className="text-xl text-navy-deep">WhatsApp — fastest response</h3>
+              <h3 className="text-xl text-navy-deep">WhatsApp â€” fastest response</h3>
               <span className="gold-rule mt-4" />
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 Send your move details on WhatsApp and receive a response within the working day.
@@ -284,3 +294,4 @@ function Contact() {
     </>
   );
 }
+

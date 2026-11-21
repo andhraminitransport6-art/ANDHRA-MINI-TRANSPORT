@@ -1,18 +1,21 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import householdImg from "@/assets/household.jpg";
 import intercityImg from "@/assets/intercity.jpg";
 import vehicleImg from "@/assets/vehicle.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
 import corporateImg from "@/assets/corporate.jpg";
-import { JsonLd, PageHero, QuoteCta, SectionHeading, ServiceCard } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, services } from "@/lib/site";
+import { BreadcrumbNav, JsonLd, PageHero, QuoteCta, SectionHeading, ServiceCard } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta, services } from "@/lib/site";
 
 export const Route = createFileRoute("/services/")({
   head: () =>
     pageMeta({
-      title: "Relocation Services in Vizag | Andhra Mini Transport, established 1993",
+      title: "Relocation Services in Visakhapatnam | Packers Movers Vizag | Andhra Mini Transport",
       description:
-        "Household shifting, intercity and interstate relocation, vehicle transportation, warehousing and corporate moves from Visakhapatnam, handled since 1993.",
+        "Andhra Mini Transport & Travels offers 5 expert relocation services in Visakhapatnam: household shifting, intercity & interstate relocation, car & bike transport, warehousing and corporate office moving. Serving Pan-India since 1993.",
+      keywords:
+        "relocation services Visakhapatnam, moving services Vizag, packers movers services Andhra Pradesh, shifting services Vizag, household shifting intercity relocation vehicle transport warehousing corporate moving Visakhapatnam",
+      canonicalPath: "/services",
     }),
   component: ServicesIndex,
 });
@@ -29,6 +32,13 @@ function ServicesIndex() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Services")} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Relocation Services", url: "/services" },
+        ])}
+      />
+      <BreadcrumbNav items={[{ label: "Services" }]} />
       <PageHero
         eyebrow="Our services"
         title="Five ways we move what matters to you"
@@ -64,3 +74,4 @@ function ServicesIndex() {
     </>
   );
 }
+

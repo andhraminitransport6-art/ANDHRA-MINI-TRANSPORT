@@ -131,6 +131,70 @@ export function InfoCard({
   );
 }
 
+export function FaqSection({
+  items,
+  title = "Frequently Asked Questions",
+  eyebrow = "Got questions?",
+  intro = "Clear, upfront answers about our packing, moving, pricing, and transit processes in Visakhapatnam and nationwide.",
+}: {
+  items: Array<{ question: string; answer: string }>;
+  title?: string;
+  eyebrow?: string;
+  intro?: string;
+}) {
+  return (
+    <section className="bg-secondary section">
+      <div className="container-page">
+        <SectionHeading eyebrow={eyebrow} title={title} intro={intro} align="center" />
+        <div className="mx-auto mt-12 max-w-3xl space-y-4">
+          {items.map((item, idx) => (
+            <details
+              key={idx}
+              className="group rounded-sm border border-border bg-card p-6 shadow-card transition-colors open:border-gold/60"
+            >
+              <summary className="flex cursor-pointer items-center justify-between font-display text-lg font-semibold text-navy-deep list-none select-none">
+                <span>{item.question}</span>
+                <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-gold transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div className="mt-4 border-t border-border/60 pt-4 text-sm leading-relaxed text-muted-foreground">
+                <p>{item.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function BreadcrumbNav({ items }: { items: Array<{ label: string; to?: string }> }) {
+  return (
+    <nav aria-label="Breadcrumb" className="container-page pt-28 pb-4 text-xs text-muted-foreground">
+      <ol className="flex flex-wrap items-center gap-1.5">
+        <li>
+          <Link to="/" className="text-navy-deep hover:text-gold hover:underline">
+            Home
+          </Link>
+        </li>
+        {items.map((item, idx) => (
+          <li key={idx} className="flex items-center gap-1.5">
+            <span>/</span>
+            {item.to ? (
+              <Link to={item.to} className="text-navy-deep hover:text-gold hover:underline">
+                {item.label}
+              </Link>
+            ) : (
+              <span className="font-medium text-foreground">{item.label}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
 export function ServiceCard({
   title,
   description,

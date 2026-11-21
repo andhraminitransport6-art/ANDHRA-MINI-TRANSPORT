@@ -1,17 +1,40 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { Archive, CheckCircle, ClipboardList, Lock, MessageCircle, Shield } from "lucide-react";
 import warehouseImg from "@/assets/warehouse.jpg";
 import warehouseInteriorImg from "@/assets/warehouse-interior.png";
 import warehouseInventoryImg from "@/assets/warehouse-inventory.png";
-import { InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
+
+const whFaqs = [
+  {
+    question: "Where are your storage and warehousing facilities located in Visakhapatnam?",
+    answer: "Our primary storage facility is strategically located in MVP Colony, Visakhapatnam, offering convenient accessibility, 24/7 CCTV surveillance, fire safety, and pest control.",
+  },
+  {
+    question: "Can I store my household furniture for just 1 to 2 weeks?",
+    answer: "Yes, we offer completely flexible short-term storage starting from just a few days up to several weeks, ideal for renovation gaps or delayed flat handovers.",
+  },
+  {
+    question: "How are stored items tracked and inventoried?",
+    answer: "Every single carton and furniture item receives an itemized inventory barcode tag upon entry. You receive a digital inventory copy, and goods are released only upon authorized verification.",
+  },
+  {
+    question: "Is your warehouse moisture and pest-proof?",
+    answer: "Yes, our storage facilities feature elevated pallet racking, periodic pest-control fumigation, and weather-sealed roofing to protect furniture, upholstery, and electronics.",
+  },
+];
+
 
 export const Route = createFileRoute("/services/warehousing")({
   head: () =>
     pageMeta({
-      title: "Warehousing and Storage in Visakhapatnam | Andhra Mini Transport",
+      title: "Warehousing & Storage in Visakhapatnam | Secure Household Storage Vizag | Andhra Mini Transport",
       description:
-        "Secure short-term and long-term storage in Vizag. Inventoried, access-controlled facilities for household and commercial goods. Enquire with Andhra Mini Transport.",
+        "Secure short-term and long-term storage in Visakhapatnam (Vizag). Inventoried, access-controlled facilities for household goods, furniture & commercial goods. No damage, transparent rates. Available 7 days. Enquire now.",
+      keywords:
+        "warehousing Visakhapatnam, storage services Vizag, household storage Visakhapatnam, furniture storage Vizag, short term storage Visakhapatnam, long term storage Vizag, goods storage Visakhapatnam, secure storage Vizag",
+      canonicalPath: "/services/warehousing",
     }),
   component: Warehousing,
 });
@@ -54,16 +77,38 @@ const storageTypes = [
 
 const features = [
   "Goods are catalogued against a written inventory before storage begins.",
-  "Access is controlled and recorded — only authorised persons can retrieve goods.",
+  "Access is controlled and recorded â€” only authorised persons can retrieve goods.",
   "The facility is protected against moisture, pests and unauthorised entry.",
   "Retrieval can be arranged with prior notice, with or without redelivery.",
-  "Storage is charged transparently — you know the rate before goods go in.",
+  "Storage is charged transparently â€” you know the rate before goods go in.",
 ];
 
 function Warehousing() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Warehousing and Storage")} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Warehousing and Storage Services in Visakhapatnam",
+          description: "Secure, climate-protected short-term and long-term storage and warehousing in Visakhapatnam for household and business inventory.",
+          url: "/services/warehousing",
+          serviceType: "Warehousing",
+        })}
+      />
+      <JsonLd data={faqJsonLd(whFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: "Warehousing & Storage", url: "/services/warehousing" },
+        ])}
+      />
+      <BreadcrumbNav
+        items={[
+          { label: "Services", to: "/services" },
+          { label: "Warehousing & Storage" },
+        ]}
+      />
       <PageHero
         eyebrow="Warehousing and storage"
         title="Secure, inventoried storage for when your move is not ready yet"
@@ -200,3 +245,4 @@ function Warehousing() {
     </>
   );
 }
+

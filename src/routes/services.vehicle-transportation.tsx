@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
   CheckCircle,
   ClipboardList,
@@ -11,15 +11,38 @@ import {
 import vehicleImg from "@/assets/vehicle.jpg";
 import vehicleCarrierImg from "@/assets/vehicle-carrier.png";
 import vehicleLoadingImg from "@/assets/vehicle-loading.png";
-import { InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
+
+const vehicleFaqs = [
+  {
+    question: "How do you transport cars safely from Visakhapatnam to other states?",
+    answer: "Cars are transported in specialized, enclosed multi-level car carriers or covered hydraulic container trucks. Each car is securely strapped by the wheels using heavy-duty tire harness belts, ensuring zero suspension stress or movement during travel.",
+  },
+  {
+    question: "What is the procedure for bike and motorcycle transportation from Vizag?",
+    answer: "Two-wheelers have their mirrors removed, fuel tank drained to reserve levels, and are wrapped with multi-layer bubble film, corrugated sheets, and stretch wrap. Optional wooden crating is available for high-end superbikes.",
+  },
+  {
+    question: "What documents are required for shipping my vehicle from Visakhapatnam?",
+    answer: "You will need a copy of the vehicle Registration Certificate (RC), valid Insurance copy, Pollution Under Control (PUC) certificate, and owner's ID proof (Aadhaar or Driving Licence).",
+  },
+  {
+    question: "Do you inspect and photograph the vehicle before loading in Visakhapatnam?",
+    answer: "Yes, our supervisor conducts a 360-degree digital vehicle inspection, noting odometer reading, existing scratches, and accessories. You receive a signed copy before vehicle dispatch.",
+  },
+];
+
 
 export const Route = createFileRoute("/services/vehicle-transportation")({
   head: () =>
     pageMeta({
-      title: "Vehicle Transportation from Vizag | Car and Bike Transport | Andhra Mini Transport",
+      title: "Car & Bike Transport from Visakhapatnam | Vehicle Shifting Vizag | Andhra Mini Transport",
       description:
-        "Safe car and two-wheeler carrier services from Visakhapatnam. Secured loading, route-specific carriers, and delivery inspection. Get a quote from Andhra Mini Transport.",
+        "Safe car and bike transport from Visakhapatnam to any city in India. Enclosed & open car carriers, tie-down secured loading, pre & post delivery inspection. Sedans, SUVs, motorcycles, scooters. Get a free quote today.",
+      keywords:
+        "car transport Visakhapatnam, bike transport Vizag, vehicle shifting Visakhapatnam, car carrier Vizag, two wheeler transport Visakhapatnam, car shipping Vizag, vehicle relocation Visakhapatnam, car transport Vizag to Hyderabad, bike transport Vizag to Bangalore",
+      canonicalPath: "/services/vehicle-transportation",
     }),
   component: VehicleTransportation,
 });
@@ -94,6 +117,28 @@ function VehicleTransportation() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Vehicle Transportation")} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Car and Bike Transportation from Visakhapatnam",
+          description: "Specialized vehicle carriers for safe car shipping and two-wheeler motorcycle transport from Visakhapatnam across India.",
+          url: "/services/vehicle-transportation",
+          serviceType: "Vehicle Transportation",
+        })}
+      />
+      <JsonLd data={faqJsonLd(vehicleFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: "Vehicle Transportation", url: "/services/vehicle-transportation" },
+        ])}
+      />
+      <BreadcrumbNav
+        items={[
+          { label: "Services", to: "/services" },
+          { label: "Vehicle Transportation" },
+        ]}
+      />
       <PageHero
         eyebrow="Vehicle transportation"
         title="Cars and two-wheelers moved with the same care as household goods"
@@ -130,7 +175,7 @@ function VehicleTransportation() {
         <div className="container-page">
           <SectionHeading
             eyebrow="The process"
-            title="From booking to delivery — documented at every stage"
+            title="From booking to delivery â€” documented at every stage"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((s) => (
@@ -228,3 +273,4 @@ function VehicleTransportation() {
     </>
   );
 }
+

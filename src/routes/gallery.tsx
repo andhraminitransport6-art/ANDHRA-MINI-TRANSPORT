@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+﻿import { createFileRoute } from '@tanstack/react-router'
 import corporateImg from "@/assets/corporate.jpg";
 import heroImg from "@/assets/hero-truck.jpg";
 import hhPackImg from "@/assets/hh-packing.png";
@@ -13,15 +13,18 @@ import warehouseInteriorImg from "@/assets/warehouse-interior.png";
 import warehouseInventoryImg from "@/assets/warehouse-inventory.png";
 import corporatePackImg from "@/assets/corporate-packing.png";
 import corporateLoadImg from "@/assets/corporate-loading.png";
-import { JsonLd, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta } from "@/lib/site";
+import { BreadcrumbNav, JsonLd, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta } from "@/lib/site";
 
 export const Route = createFileRoute("/gallery")({
   head: () =>
     pageMeta({
-      title: "Gallery | Andhra Mini Transport & Travels — Packers and Movers",
+      title: "Gallery | Andhra Mini Transport — Packers Movers Operations in Visakhapatnam",
       description:
-        "View images of Andhra Mini Transport operations — household packing, vehicle loading, warehouse storage and transport trucks. Based in Visakhapatnam, operating pan-India.",
+        "Photos of Andhra Mini Transport & Travels operations — household packing, vehicle loading, warehouse storage and long-distance transport trucks. Best packers and movers in Visakhapatnam, Andhra Pradesh.",
+      keywords:
+        "packers movers photos Visakhapatnam, moving company images Vizag, packing loading photos Visakhapatnam, household shifting images Vizag, car transport photos Visakhapatnam",
+      canonicalPath: "/gallery",
     }),
   component: Gallery,
 });
@@ -111,18 +114,25 @@ function Gallery() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Gallery")} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Operations Gallery", url: "/gallery" },
+        ])}
+      />
+      <BreadcrumbNav items={[{ label: "Gallery" }]} />
 
       {/* Hero */}
       <section className="bg-navy-deep pt-32 pb-16">
         <div className="container-page">
           <p className="eyebrow text-gold">Gallery</p>
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight text-white md:text-5xl">
-            Packing, loading, storage and transport — the work we do
+            Packing, loading, storage and transport â€” the work we do
           </h1>
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75">
             The images below show our operations across service types. This gallery is structured to
-            be updated with actual company photographs — each grid slot corresponds to a specific
+            be updated with actual company photographs â€” each grid slot corresponds to a specific
             service area.
           </p>
         </div>
@@ -138,7 +148,7 @@ function Gallery() {
           />
 
           {/*
-           * Gallery grid — swap-ready.
+           * Gallery grid â€” swap-ready.
            * Replace each src with a real company photo.
            * The grid uses a 1/2/3 column responsive layout.
            * Items with lg:col-span-2 span two columns on large screens for visual variety.
@@ -183,3 +193,4 @@ function Gallery() {
     </>
   );
 }
+

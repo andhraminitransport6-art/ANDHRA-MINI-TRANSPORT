@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
   Archive,
   CheckCircle,
@@ -13,15 +13,38 @@ import householdImg from "@/assets/household.jpg";
 import hhPackImg from "@/assets/hh-packing.png";
 import hhLoadImg from "@/assets/hh-loading.png";
 import hhDeliverImg from "@/assets/hh-delivery.png";
-import { InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
+
+const hsFaqs = [
+  {
+    question: "How do you protect delicate crockery and electronics during household shifting in Vizag?",
+    answer: "We wrap every fragile item, glassware set, and television with multi-layer bubble wrap, closed-cell EPE foam, corner protectors, and heavy-duty 5-ply corrugated carton boxes. Cartons are clearly labelled 'FRAGILE' and placed in upper load tiers.",
+  },
+  {
+    question: "Do you dismantle and reassemble heavy wooden beds and wardrobes?",
+    answer: "Yes, our moving carpenters handle complete dismantling of king/queen size cot beds, multi-door wardrobes, dining tables, and modular furniture in Visakhapatnam, and reassemble them at your new home.",
+  },
+  {
+    question: "Do you supply carton boxes, tapes, and bubble wrap beforehand?",
+    answer: "Yes, if you prefer packing personal clothing or documents yourself, our crew can deliver premium boxes, bubble roll, and tape to your address in Vizag prior to the moving date.",
+  },
+  {
+    question: "Can household shifting be completed within a single day in Visakhapatnam?",
+    answer: "Yes, local 1BHK, 2BHK, and 3BHK home relocations within Visakhapatnam (e.g. from Madhurawada to MVP Colony or Gajuwaka) are typically completed within 4 to 8 hours from packing start to final placement.",
+  },
+];
+
 
 export const Route = createFileRoute("/services/household-shifting")({
   head: () =>
     pageMeta({
-      title: "Household Shifting in Visakhapatnam | Andhra Mini Transport since 1993",
+      title: "Household Shifting in Visakhapatnam | Home Packers Movers Vizag | Andhra Mini Transport",
       description:
-        "Local and long-distance home relocation from Vizag. Room-by-room packing, careful loading, and safe placement at your new home. Enquire with Andhra Mini Transport.",
+        "Expert household shifting & home relocation services in Visakhapatnam (Vizag). Room-by-room packing, bubble wrap protection, careful loading and safe delivery at your new address. Local & long-distance. 30+ years experience. Call 09440147473.",
+      keywords:
+        "household shifting Visakhapatnam, home shifting Vizag, house relocation Visakhapatnam, local packers movers Vizag, residential shifting Visakhapatnam, home movers Vizag, furniture shifting Visakhapatnam, domestic relocation Vizag",
+      canonicalPath: "/services/household-shifting",
     }),
   component: HouseholdShifting,
 });
@@ -51,7 +74,7 @@ const whatWePack = [
   {
     label: "Furniture",
     detail:
-      "Sofas, beds, wardrobes, dining sets — disassembled where required and reassembled at destination.",
+      "Sofas, beds, wardrobes, dining sets â€” disassembled where required and reassembled at destination.",
   },
   {
     label: "Kitchen and appliances",
@@ -101,6 +124,28 @@ function HouseholdShifting() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Household Shifting")} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Household Shifting Services Visakhapatnam",
+          description: "Professional household packing and moving services in Visakhapatnam for local and interstate home relocation.",
+          url: "/services/household-shifting",
+          serviceType: "Household Shifting",
+        })}
+      />
+      <JsonLd data={faqJsonLd(hsFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: "Household Shifting", url: "/services/household-shifting" },
+        ])}
+      />
+      <BreadcrumbNav
+        items={[
+          { label: "Services", to: "/services" },
+          { label: "Household Shifting" },
+        ]}
+      />
       <PageHero
         eyebrow="Household shifting"
         title="Your home, moved carefully from one address to the next"
@@ -114,7 +159,7 @@ function HouseholdShifting() {
         <div className="container-page">
           <SectionHeading
             eyebrow="What we handle"
-            title="Every room, every item — one coordinated move"
+            title="Every room, every item â€” one coordinated move"
             intro="We do not work from a fixed rate card. The survey defines exactly what needs to move, and the quote reflects that precisely."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -240,3 +285,4 @@ function HouseholdShifting() {
     </>
   );
 }
+

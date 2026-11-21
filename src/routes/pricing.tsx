@@ -1,24 +1,61 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MessageCircle, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { JsonLd } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+
+import { BreadcrumbNav, FaqSection, JsonLd } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+
+const pricingFaqs = [
+  {
+    question: "How are packing and moving charges calculated in Visakhapatnam?",
+    answer:
+      "Shifting charges depend on 5 main factors: total volume/weight of goods, distance between pickup and delivery locations, quality of packing materials required (bubble wrap, corrugated sheets, wooden crates), floor numbers with/without lift, and optional add-ons like vehicle carriers or warehousing.",
+  },
+  {
+    question: "Are there any hidden costs added to the quote on moving day?",
+    answer:
+      "No. Andhra Mini Transport operates with 100% price transparency. After your pre-move survey (in-person or video), our written quote covers packing materials, labor, loading, transport, and unloading. The quoted price is the final price.",
+  },
+  {
+    question: "How much does it cost to move a car or bike from Vizag to Hyderabad or Bangalore?",
+    answer:
+      "Bike transport from Visakhapatnam to Hyderabad or Bangalore typically ranges between ₹2,500 to ₹5,500 depending on bike CC and crating. Car transportation via dedicated carriers ranges from ₹8,500 to ₹16,000 depending on sedan/SUV dimensions and transit insurance.",
+  },
+  {
+    question: "Do you offer free on-site moving cost estimates in Vizag?",
+    answer:
+      "Yes! We provide 100% free, no-obligation pre-move surveys across MVP Colony, Madhurawada, Gajuwaka, Rushikonda, Seethammadhara, and all other areas in Visakhapatnam.",
+  },
+];
+
+const priceMatrix = [
+  { type: "1 BHK Shifting (Local Vizag)", packing: "Included", labor: "2-3 Men", approx: "₹4,500 – ₹8,500" },
+  { type: "2 BHK Shifting (Local Vizag)", packing: "Included", labor: "3-4 Men", approx: "₹7,500 – ₹13,500" },
+  { type: "3 BHK / Villa (Local Vizag)", packing: "Included", labor: "4-6 Men", approx: "₹12,000 – ₹22,000" },
+  { type: "Vizag to Hyderabad Relocation", packing: "Multi-layer", labor: "Dedicated", approx: "₹14,000 – ₹32,000" },
+  { type: "Vizag to Bengaluru / Chennai", packing: "Multi-layer", labor: "Dedicated", approx: "₹18,000 – ₹42,000" },
+  { type: "Two-Wheeler / Bike Transport", packing: "Foam & Wrap", labor: "Ramp Load", approx: "₹2,500 – ₹5,500" },
+  { type: "Car Carrier Shipping", packing: "Wheel Chocks", labor: "Specialist", approx: "₹8,500 – ₹17,000" },
+];
 
 export const Route = createFileRoute("/pricing")({
   head: () =>
     pageMeta({
-      title: "Get a Relocation Quote | Andhra Mini Transport & Travels, Visakhapatnam",
+      title: "Get Free Packers Movers Quote in Visakhapatnam | Shifting Cost Vizag | Andhra Mini Transport",
       description:
-        "Request a quote for household shifting, vehicle transport, warehousing or corporate relocation with Andhra Mini Transport. Respond via WhatsApp or our quote form.",
+        "Request a free relocation quote from Andhra Mini Transport & Travels, Visakhapatnam. Household shifting, vehicle transport, warehousing & corporate office moving. Transparent pricing, no hidden charges. WhatsApp or call 09440147473.",
+      keywords:
+        "packers movers cost Visakhapatnam, shifting charges Vizag, relocation quote Visakhapatnam, movers price Vizag, free shifting quote Visakhapatnam, household shifting cost Vizag, car transport price Visakhapatnam",
+      canonicalPath: "/pricing",
     }),
   component: Pricing,
 });
 
 const moveTypes = [
-  "Household shifting — local (within Visakhapatnam)",
-  "Household shifting — long distance",
+  "Household shifting â€” local (within Visakhapatnam)",
+  "Household shifting â€” long distance",
   "Intercity or interstate relocation",
   "Vehicle transportation",
   "Warehousing and storage",
@@ -71,7 +108,15 @@ function Pricing() {
 
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Get a Quote")} />
+            <JsonLd data={localBusinessJsonLd("Get a Quote")} />
+      <JsonLd data={faqJsonLd(pricingFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Get a Quote & Pricing", url: "/pricing" },
+        ])}
+      />
+      <BreadcrumbNav items={[{ label: "Pricing & Quote" }]} />
 
       {/* Hero */}
       <section className="bg-navy-deep pt-32 pb-16">
@@ -83,7 +128,7 @@ function Pricing() {
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75">
             Fill in the form below and your details will be sent directly to our WhatsApp so we can
-            respond promptly. We do not use automated pricing — every quote is assessed by a
+            respond promptly. We do not use automated pricing â€” every quote is assessed by a
             coordinator who understands the specifics of your move.
           </p>
         </div>
@@ -306,7 +351,7 @@ function Pricing() {
                 </p>
                 <p>
                   Every enquiry is followed by a quick call or in-person survey to understand what
-                  needs moving. The written quote we share after that survey is what you pay — no
+                  needs moving. The written quote we share after that survey is what you pay â€” no
                   adjustments on the day.
                 </p>
                 <p>
@@ -327,7 +372,7 @@ function Pricing() {
                   className="flex items-center gap-3 text-sm font-semibold text-navy-deep transition-colors hover:text-gold"
                 >
                   <MessageCircle className="h-4 w-4 text-gold" />
-                  WhatsApp — preferred for quick quotes
+                  WhatsApp â€” preferred for quick quotes
                 </a>
                 <a
                   href={telLink}
@@ -342,6 +387,56 @@ function Pricing() {
           </div>
         </div>
       </section>
+
+      {/* Indicative Rate Matrix */}
+      <section className="border-t border-border bg-card section">
+        <div className="container-page">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-gold">Price Transparency</p>
+            <h2 className="mt-3 text-3xl font-semibold text-navy-deep md:text-4xl">
+              Estimated Moving Charges in Visakhapatnam
+            </h2>
+            <span className="gold-rule mt-5" />
+            <p className="mt-5 text-base text-muted-foreground">
+              These indicative rates give you a clear baseline. Exact prices are tailored to your inventory volume, floor access, and specific destination.
+            </p>
+          </div>
+
+          <div className="mt-10 overflow-x-auto rounded-sm border border-border shadow-card">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-border bg-secondary text-xs font-semibold tracking-wider text-navy-deep uppercase">
+                <tr>
+                  <th className="px-6 py-4">Relocation Category</th>
+                  <th className="px-6 py-4">Packing Service</th>
+                  <th className="px-6 py-4">Crew Deployment</th>
+                  <th className="px-6 py-4">Approximate Range</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {priceMatrix.map((row) => (
+                  <tr key={row.type} className="hover:bg-secondary/40 transition-colors">
+                    <td className="px-6 py-4 font-medium text-navy-deep">{row.type}</td>
+                    <td className="px-6 py-4 text-muted-foreground">{row.packing}</td>
+                    <td className="px-6 py-4 text-muted-foreground">{row.labor}</td>
+                    <td className="px-6 py-4 font-semibold text-gold-muted">{row.approx}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            * Note: Toll taxes, GST, and optional transit insurance are calculated as per applicable statutory norms.
+          </p>
+        </div>
+      </section>
+
+      <FaqSection
+        items={pricingFaqs}
+        eyebrow="Pricing Clarity"
+        title="Frequently Asked Questions About Shifting Costs"
+      />
     </>
   );
 }
+
+

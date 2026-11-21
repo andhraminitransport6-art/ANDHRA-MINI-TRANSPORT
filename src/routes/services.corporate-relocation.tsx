@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
   Briefcase,
   CheckCircle,
@@ -12,15 +12,34 @@ import {
 import corporateImg from "@/assets/corporate.jpg";
 import corporatePackImg from "@/assets/corporate-packing.png";
 import corporateLoadImg from "@/assets/corporate-loading.png";
-import { InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, site, telLink, whatsappLink } from "@/lib/site";
+
+const corpFaqs = [
+  {
+    question: "Can office moving be executed over the weekend to eliminate downtime?",
+    answer: "Yes, over 80% of our corporate relocations in Visakhapatnam are scheduled from Friday evening to Sunday night, ensuring your business resumes 100% operation on Monday morning.",
+  },
+  {
+    question: "How do you pack and transport sensitive IT servers and desktop workstations?",
+    answer: "We use anti-static bubble wrap, custom monitor protective sleeves, server transit racks, and color-coded workstation tagging so each system arrives at its designated desk accurately.",
+  },
+  {
+    question: "Do you sign corporate Non-Disclosure Agreements (NDAs) for confidential files?",
+    answer: "Yes, we adhere to strict confidentiality protocols, provide chain-of-custody box seals for sensitive files, and routinely execute NDAs with corporate clients.",
+  },
+];
+
 
 export const Route = createFileRoute("/services/corporate-relocation")({
   head: () =>
     pageMeta({
-      title: "Corporate Relocation and Office Moving | Andhra Mini Transport Vizag",
+      title: "Corporate & Office Relocation in Visakhapatnam | Business Movers Vizag | Andhra Mini Transport",
       description:
-        "Planned office and business moves from Visakhapatnam. After-hours scheduling, IT handling and furniture moves to keep downtime minimal. Enquire with Andhra Mini Transport.",
+        "Professional corporate and office relocation in Visakhapatnam. After-hours scheduling, IT equipment packing, furniture moving and floor-plan placement to minimise business downtime. Trusted by businesses in Vizag since 1993.",
+      keywords:
+        "corporate relocation Visakhapatnam, office movers Vizag, office shifting Visakhapatnam, business relocation Vizag, commercial movers Visakhapatnam, IT relocation Vizag, office furniture movers Visakhapatnam, employee relocation Vizag",
+      canonicalPath: "/services/corporate-relocation",
     }),
   component: CorporateRelocation,
 });
@@ -50,7 +69,7 @@ const whatWeHandle = [
   {
     label: "Office furniture",
     detail:
-      "Desks, chairs, conference tables, partitions and storage units — disassembled, moved and reassembled.",
+      "Desks, chairs, conference tables, partitions and storage units â€” disassembled, moved and reassembled.",
   },
   {
     label: "IT and server equipment",
@@ -70,7 +89,7 @@ const whatWeHandle = [
 ];
 
 const approach = [
-  "Move execution is scheduled outside working hours — evenings, weekends or holidays — to avoid business disruption.",
+  "Move execution is scheduled outside working hours â€” evenings, weekends or holidays â€” to avoid business disruption.",
   "A floor plan of the new premises is taken in advance so furniture is placed once without repeated shifting.",
   "IT equipment is labelled by department and workstation to make reconnection straightforward.",
   "A single project coordinator handles the move, accessible to your office manager throughout the process.",
@@ -81,6 +100,28 @@ function CorporateRelocation() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Corporate Relocation")} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Corporate Relocation and Office Shifting Visakhapatnam",
+          description: "Seamless office and corporate relocation services in Visakhapatnam with zero downtime, weekend scheduling, and IT packing.",
+          url: "/services/corporate-relocation",
+          serviceType: "Corporate Relocation",
+        })}
+      />
+      <JsonLd data={faqJsonLd(corpFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: "Corporate Relocation", url: "/services/corporate-relocation" },
+        ])}
+      />
+      <BreadcrumbNav
+        items={[
+          { label: "Services", to: "/services" },
+          { label: "Corporate Relocation" },
+        ]}
+      />
       <PageHero
         eyebrow="Corporate relocation"
         title="Office moves planned to run outside business hours"
@@ -122,7 +163,7 @@ function CorporateRelocation() {
           <SectionHeading
             eyebrow="Our approach"
             title="Minimal downtime by design, not by luck"
-            intro="Every practice below is how we do corporate moves by default — not an upgrade."
+            intro="Every practice below is how we do corporate moves by default â€” not an upgrade."
           />
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {approach.map((a) => (
@@ -236,3 +277,4 @@ function CorporateRelocation() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Boxes,
   CalendarCheck,
@@ -18,9 +18,10 @@ import intercityImg from "@/assets/intercity.jpg";
 import vehicleImg from "@/assets/vehicle.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
 import corporateImg from "@/assets/corporate.jpg";
-import { InfoCard, JsonLd, QuoteCta, SectionHeading, ServiceCard } from "@/components/site/Blocks";
+import { FaqSection, InfoCard, JsonLd, QuoteCta, SectionHeading, ServiceCard } from "@/components/site/Blocks";
 import {
   customerReviews,
+  faqJsonLd,
   localBusinessJsonLd,
   pageMeta,
   site,
@@ -31,9 +32,12 @@ import {
 export const Route = createFileRoute("/")({
   head: () =>
     pageMeta({
-      title: "Packers and Movers in Visakhapatnam | Andhra Mini Transport since 1993",
+      title: "Best Packers and Movers in Visakhapatnam | Andhra Mini Transport Since 1993",
       description:
-        "Andhra Mini Transport & Travels has handled household, office and vehicle relocation from Vizag across India since 1993. Rated 5.0 by customers. Get a quote on WhatsApp.",
+        "Andhra Mini Transport & Travels — Visakhapatnam's most trusted Packers and Movers since 1993. Household shifting, intercity relocation, car transport, office moving & warehousing across India. Rated 5.0 by 200+ customers. Get a free quote: 09440147473.",
+      keywords:
+        "packers and movers Visakhapatnam, packers and movers Vizag, best packers movers Vizag, household shifting Visakhapatnam, home relocation Vizag, intercity movers Visakhapatnam, car transport Vizag, office movers Visakhapatnam, affordable shifting Vizag, Andhra Mini Transport",
+      canonicalPath: "/",
     }),
   component: Home,
 });
@@ -74,10 +78,44 @@ const serviceCards = [
   },
 ] as const;
 
+const homeFaqs = [
+  {
+    question: "Why is Andhra Mini Transport considered the best packers and movers in Visakhapatnam?",
+    answer:
+      "Established in 1993, Andhra Mini Transport & Travels brings over 30 years of uninterrupted relocation excellence in Visakhapatnam. With a 5.0-star rating across 200+ verified customer reviews, our family-owned business guarantees transparent pricing, dedicated single-point coordinators, trained in-house packing crews, and zero damage handling for local and pan-India moves.",
+  },
+  {
+    question: "How much do local packers and movers cost in Visakhapatnam (Vizag)?",
+    answer:
+      "Local shifting costs in Visakhapatnam typically range from ₹4,500 to ₹9,000 for a 1BHK, ₹7,000 to ₹14,000 for a 2BHK, and ₹11,000 to ₹22,000 for a 3BHK/Villa, depending on floor levels, elevator availability, fragile items, and distance within Vizag. We provide free, upfront, in-person or video quotes with no hidden charges.",
+  },
+  {
+    question: "Which localities in Visakhapatnam do you provide packing and moving services in?",
+    answer:
+      "We provide comprehensive door-to-door relocation across all Visakhapatnam neighbourhoods including MVP Colony, Madhurawada, Gajuwaka, Rushikonda, Seethammadhara, Dwaraka Nagar, Siripuram, Waltair Uplands, Sujatha Nagar, Pendurthi, NAD Junction, Gopalapatnam, Kurmannapalem, and Steel Plant Township.",
+  },
+  {
+    question: "Do you offer intercity shifting from Visakhapatnam to Hyderabad, Bangalore, or Chennai?",
+    answer:
+      "Yes. We specialize in intercity and interstate relocations from Visakhapatnam to all major Indian metropolitan hubs including Hyderabad (1-2 days), Bengaluru (2-3 days), Chennai (2-3 days), Pune, Mumbai, Delhi NCR, and Kolkata with closed container trucks and direct single-point coordination.",
+  },
+  {
+    question: "Can I transport my car or two-wheeler bike along with household goods?",
+    answer:
+      "Yes, we provide specialized car carrier transport and two-wheeler bike packing & shifting services. Vehicles undergo a thorough pre-loading condition inspection and are secured using heavy-duty wheel chocks and safety harness straps.",
+  },
+  {
+    question: "What protective packing materials do you use for fragile items?",
+    answer:
+      "We utilize 5-layer heavy-duty corrugated cartons, premium air bubble wrap, waterproof stretch film, foam padding, edge guards, and custom wooden crating for delicate glass, electronics, appliances, and antique furniture.",
+  },
+];
+
 function Home() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Home")} />
+      <JsonLd data={faqJsonLd(homeFaqs)} />
 
       <section className="relative min-h-[92vh] overflow-hidden">
         <img
@@ -89,7 +127,7 @@ function Home() {
         />
         <div className="absolute inset-0 bg-navy-deep/78" />
         <div className="container-page relative flex min-h-[92vh] flex-col justify-center pt-32 pb-20">
-          <p className="eyebrow text-gold">Established 1993 — Visakhapatnam</p>
+          <p className="eyebrow text-gold">Established 1993 â€” Visakhapatnam</p>
           <h1 className="mt-5 max-w-4xl text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
             Thirty years of moving homes and businesses across India, carefully.
           </h1>
@@ -331,7 +369,11 @@ function Home() {
         </div>
       </section>
 
+      <FaqSection items={homeFaqs} eyebrow="Answers & Clarity" title="Frequently Asked Questions About Moving in Visakhapatnam" />
+
       <QuoteCta />
     </>
   );
 }
+
+

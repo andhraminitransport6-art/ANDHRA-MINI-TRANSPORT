@@ -1,16 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, Heart, MapPin, Route as RouteIcon, ShieldCheck, Users } from "lucide-react";
 import householdImg from "@/assets/household.jpg";
 import intercityImg from "@/assets/intercity.jpg";
-import { InfoCard, JsonLd, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site } from "@/lib/site";
+import { BreadcrumbNav, InfoCard, JsonLd, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta, site } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () =>
     pageMeta({
-      title: "About Andhra Mini Transport & Travels | Packers and Movers since 1993",
+      title: "About Us | Andhra Mini Transport — Trusted Packers & Movers in Vizag Since 1993",
       description:
-        "Andhra Mini Transport & Travels has operated from Visakhapatnam since 1993. Learn about our 30+ year history, values and pan-India reach.",
+        "Andhra Mini Transport & Travels — Visakhapatnam's most trusted packers and movers since 1993. 30+ years of household shifting, vehicle transport & intercity relocation. Family-run, pan-India network, 5.0 Google rated.",
+      keywords:
+        "about Andhra Mini Transport, packers movers Vizag history, trusted movers Visakhapatnam, 30 years movers Vizag, family packers movers Visakhapatnam, reliable movers Vizag since 1993",
+      canonicalPath: "/about",
     }),
   component: About,
 });
@@ -42,12 +45,19 @@ function About() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("About Us")} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "About Us", url: "/about" },
+        ])}
+      />
+      <BreadcrumbNav items={[{ label: "About Us" }]} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy-deep pt-32 pb-16 md:pt-44 md:pb-24">
         <img
           src={intercityImg}
-          alt="Transport truck on the road — Andhra Mini Transport operations"
+          alt="Transport truck on the road â€” Andhra Mini Transport operations"
           className="absolute inset-0 h-full w-full object-cover opacity-20"
           loading="eager"
         />
@@ -77,7 +87,7 @@ function About() {
             />
             <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>
-                When we started in 1993, most moves were local — families shifting within
+                When we started in 1993, most moves were local â€” families shifting within
                 Visakhapatnam, businesses moving to a larger office nearby. The work was physical
                 and relationship-driven. Referrals came from satisfied customers, not
                 advertisements. That has not changed.
@@ -91,7 +101,7 @@ function About() {
               </p>
               <p>
                 Today we handle household moves, vehicle transportation, warehousing and full
-                corporate relocations — from Visakhapatnam and across India. The operation is larger
+                corporate relocations â€” from Visakhapatnam and across India. The operation is larger
                 but the working style is the same: one point of contact, honest pricing, and goods
                 that arrive as they were packed.
               </p>
@@ -127,7 +137,7 @@ function About() {
                 <div>
                   <p className="text-sm font-semibold text-navy-deep">{site.addressLine}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Headquarters — established here since 1993
+                    Headquarters â€” established here since 1993
                   </p>
                 </div>
               </div>
@@ -181,7 +191,7 @@ function About() {
           </div>
           <div className="border border-border shadow-card">
             <iframe
-              title="Andhra Mini Transport location — Visakhapatnam"
+              title="Andhra Mini Transport location â€” Visakhapatnam"
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.068300504791!2d83.32542347517312!3d17.741420683207394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQ0JzI5LjEiTiA4M8KwMTknNDAuOCJF!5e0!3m2!1sen!2sin!4v1788933182929!5m2!1sen!2sin"
               className="h-[380px] w-full"
               style={{ border: 0 }}
@@ -228,7 +238,7 @@ function About() {
               <div className="p-6">
                 <h3 className="text-xl text-navy-deep">Transport fleet</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  We deploy the vehicle type appropriate for the move — small tempo for local
+                  We deploy the vehicle type appropriate for the move â€” small tempo for local
                   shifts, full body trucks for household loads, and specialist carriers for
                   vehicles. Long-distance routes use partner fleets vetted over many years.
                 </p>
@@ -245,3 +255,4 @@ function About() {
     </>
   );
 }
+

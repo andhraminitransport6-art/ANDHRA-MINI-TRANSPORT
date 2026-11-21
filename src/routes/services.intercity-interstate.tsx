@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
   CheckCircle,
   ClipboardList,
@@ -13,15 +13,38 @@ import intercityImg from "@/assets/intercity.jpg";
 import intercityHighwayImg from "@/assets/intercity-highway.png";
 import intercityPlanningImg from "@/assets/intercity-planning.png";
 import intercityUnloadImg from "@/assets/intercity-unloading.png";
-import { InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
-import { localBusinessJsonLd, pageMeta, site, telLink, whatsappLink } from "@/lib/site";
+import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, site, telLink, whatsappLink } from "@/lib/site";
+
+const intercityFaqs = [
+  {
+    question: "How long does intercity moving take from Visakhapatnam to Hyderabad or Bengaluru?",
+    answer: "Transit from Visakhapatnam to Hyderabad takes approximately 24 to 48 hours. Transit to Bengaluru, Chennai, or Vijayawada takes 2 to 3 days. For Pune, Mumbai, and Delhi NCR, transit typically takes 3 to 5 days under normal highway conditions.",
+  },
+  {
+    question: "Do you offer shared part-load (LTL) as well as dedicated full truckload (FTL)?",
+    answer: "Yes, we provide both. Full Truckload (FTL) gives you exclusive use of an enclosed container with express delivery, while Shared Part-Load (LTL) is an economical option for small shipments or student relocations.",
+  },
+  {
+    question: "How do I track my goods while they are in transit across state borders?",
+    answer: "You are assigned a dedicated relocation manager in our Visakhapatnam office who provides regular WhatsApp status updates, highway checkpoint milestones, and destination crew coordination.",
+  },
+  {
+    question: "Do you handle interstate transport permits and road tax clearances?",
+    answer: "Yes, all our transport vehicles and partner carriers possess valid national permits, e-Way bills, and GST compliance for seamless interstate border crossings across India.",
+  },
+];
+
 
 export const Route = createFileRoute("/services/intercity-interstate")({
   head: () =>
     pageMeta({
-      title: "Intercity and Interstate Relocation from Vizag | Andhra Mini Transport",
+      title: "Intercity & Interstate Relocation from Visakhapatnam | Andhra Mini Transport",
       description:
-        "Door-to-door intercity and interstate moves from Visakhapatnam to any city in India. One coordinator, full packing, single-point delivery. Enquire with Andhra Mini Transport.",
+        "Door-to-door intercity and interstate relocation from Visakhapatnam to Hyderabad, Bangalore, Chennai, Pune, Delhi, Mumbai & all India. Single coordinator, full packing, real-time tracking. Trusted since 1993. Free quote on WhatsApp.",
+      keywords:
+        "intercity relocation Visakhapatnam, interstate movers Vizag, Vizag to Hyderabad packers movers, Vizag to Bangalore movers, Vizag to Chennai shifting, long distance movers Visakhapatnam, pan India relocation from Vizag, door to door moving Visakhapatnam",
+      canonicalPath: "/services/intercity-interstate",
     }),
   component: IntercityInterstate,
 });
@@ -49,7 +72,7 @@ const serviceGallery = [
 
 const coverage = [
   "Door-to-door service from your current address to the new one, regardless of distance.",
-  "Coordination at both the origin and the destination — you do not need to arrange anything at the other end.",
+  "Coordination at both the origin and the destination â€” you do not need to arrange anything at the other end.",
   "Single point of contact throughout the entire move for updates and queries.",
   "Packing material, loading, transport and unloading are all included in the quoted scope.",
 ];
@@ -85,9 +108,31 @@ function IntercityInterstate() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd("Intercity and Interstate Relocation")} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Intercity and Interstate Relocation from Visakhapatnam",
+          description: "Door-to-door interstate relocation and long distance moving from Visakhapatnam to all Indian cities.",
+          url: "/services/intercity-interstate",
+          serviceType: "Intercity Relocation",
+        })}
+      />
+      <JsonLd data={faqJsonLd(intercityFaqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: "Intercity & Interstate", url: "/services/intercity-interstate" },
+        ])}
+      />
+      <BreadcrumbNav
+        items={[
+          { label: "Services", to: "/services" },
+          { label: "Intercity & Interstate" },
+        ]}
+      />
       <PageHero
         eyebrow="Intercity and interstate relocation"
-        title="From Visakhapatnam to anywhere in India — one move, one team"
+        title="From Visakhapatnam to anywhere in India â€” one move, one team"
         intro="Long-distance relocation is not just a longer drive. It requires route planning, coordination at both ends, and a single point of accountability. We provide all three."
         image={intercityImg}
         imageAlt="Transport truck on a national highway for long distance relocation"
@@ -236,3 +281,4 @@ function IntercityInterstate() {
     </>
   );
 }
+
