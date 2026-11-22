@@ -12,6 +12,8 @@ export const Route = createFileRoute("/contact")({
       title: "Contact Andhra Mini Transport | MVP Colony, Vizag",
       description:
         "Call 09440147473, message us on WhatsApp or find our MVP Colony office in Visakhapatnam. Our moving team is available daily from 8 AM to 8 PM.",
+      keywords:
+        "contact Andhra Mini Transport, movers phone number Vizag, Andhra Mini Transport address MVP Colony, packers movers contact Visakhapatnam",
       canonicalPath: "/contact",
     }),
   component: Contact,

@@ -26,15 +26,18 @@ import {
   pageMeta,
   site,
   telLink,
+  websiteJsonLd,
   whatsappLink,
 } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () =>
     pageMeta({
-      title: "Packers and Movers in Vizag | Andhra Mini Transport",
+      title: "Andhra Mini Transport | Packers and Movers in Vizag, Visakhapatnam",
       description:
-        "Andhra Mini Transport Packers and Movers handles home and office moves in Visakhapatnam and across India. Call our MVP Colony team for a free moving quote.",
+        "Andhra Mini Transport — trusted packers and movers in Visakhapatnam (Vizag) since 1993. Household shifting, office relocation, vehicle transport and storage. Call 09440147473 for a free quote.",
+      keywords:
+        "Andhra Mini Transport, packers and movers Visakhapatnam, packers and movers Vizag, best movers Vizag, household shifting Visakhapatnam, relocation services Vizag, andhraminitransport, andhra mini transport packers movers",
       canonicalPath: "/",
     }),
   component: Home,
@@ -112,6 +115,7 @@ const homeFaqs = [
 function Home() {
   return (
     <>
+      <JsonLd data={websiteJsonLd()} />
       <JsonLd data={localBusinessJsonLd()} />
       <JsonLd data={faqJsonLd(homeFaqs)} />
 

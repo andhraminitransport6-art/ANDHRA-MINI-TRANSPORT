@@ -101,15 +101,21 @@ export function localBusinessJsonLd() {
     "@type": "MovingCompany",
     "@id": "https://www.andhraminitransport.com/#business",
     name: site.name,
-    alternateName: [site.tradingAs, "Andhra Mini Transport", "AMT Packers Movers Vizag"],
+    alternateName: [
+      site.tradingAs,
+      "Andhra Mini Transport",
+      "AMT Packers Movers Vizag",
+      "Andhra Mini Transport & Travels",
+    ],
     foundingDate: String(site.established),
     telephone: site.phoneIntl,
     url: site.website,
     image: `${site.website}/favicon.jpg`,
     logo: `${site.website}/favicon.jpg`,
-    description: "Family-run packers and movers in MVP Colony, Visakhapatnam, offering household shifting, office moves, vehicle transport and storage since 1993.",
+    description:
+      "Andhra Mini Transport — trusted packers and movers in MVP Colony, Visakhapatnam since 1993. We handle household shifting, office relocation, vehicle transport and storage across India.",
     email: site.email,
-    priceRange: "₹₹",
+    priceRange: "\u20B9\u20B9",
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, Bank Transfer, UPI",
     openingHours: "Mo-Su 08:00-20:00",
@@ -126,7 +132,14 @@ export function localBusinessJsonLd() {
       latitude: site.geo.latitude,
       longitude: site.geo.longitude,
     },
-    hasMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.068300504791!2d83.32542347517312!3d17.741420683207394",
+    hasMap: "https://maps.app.goo.gl/andhraminitransport",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: site.rating.value,
+      reviewCount: site.rating.reviewCount,
+      bestRating: "5",
+      worstRating: "1",
+    },
     areaServed: [
       { "@type": "City", name: "Visakhapatnam", alternateName: "Vizag" },
       { "@type": "City", name: "Hyderabad" },
@@ -135,11 +148,16 @@ export function localBusinessJsonLd() {
       { "@type": "City", name: "Pune" },
       { "@type": "City", name: "Delhi" },
       { "@type": "City", name: "Mumbai" },
+      { "@type": "City", name: "Kolkata" },
       { "@type": "Country", name: "India" },
     ],
     sameAs: [
       "https://www.google.com/maps/place/Andhra+Mini+Transport",
+      "https://www.facebook.com/andhraminitransport",
+      "https://www.justdial.com/Visakhapatnam/Andhra-Mini-Transport",
     ],
+    keywords:
+      "packers and movers Visakhapatnam, packers movers Vizag, Andhra Mini Transport, household shifting Vizag, office relocation Visakhapatnam",
   };
 }
 
@@ -181,6 +199,28 @@ export function serviceJsonLd({
   };
 }
 
+/** WebSite schema — helps Google show sitelinks for brand searches like "Andhra Mini Transport" */
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.website}/#website`,
+    name: site.name,
+    alternateName: ["Andhra Mini Transport", site.tradingAs],
+    url: site.website,
+    description: site.tagline,
+    publisher: { "@id": `${site.website}/#business` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${site.website}/services?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
 export function breadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
   return {
     "@context": "https://schema.org",
@@ -197,34 +237,52 @@ export function breadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
 export function pageMeta({
   title,
   description,
+  keywords,
   image = "/favicon.jpg",
   canonicalPath,
 }: {
   title: string;
   description: string;
+  keywords?: string;
   image?: string;
   canonicalPath: string;
 }) {
   const canonicalUrl = `${site.website}${canonicalPath}`;
+  const metaTags = [
+    { title },
+    { name: "description", content: description },
+    {
+      name: "robots",
+      content:
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    },
+    // Open Graph
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: new URL(image, site.website).href },
+    { property: "og:url", content: canonicalUrl },
+    { property: "og:site_name", content: "Andhra Mini Transport & Travels" },
+    { property: "og:locale", content: "en_IN" },
+    // Twitter
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: new URL(image, site.website).href },
+    // Extra brand signals
+    { name: "author", content: "Andhra Mini Transport & Travels" },
+    { name: "geo.region", content: "IN-AP" },
+    { name: "geo.placename", content: "Visakhapatnam" },
+    { name: "geo.position", content: `${site.geo.latitude};${site.geo.longitude}` },
+    { name: "ICBM", content: `${site.geo.latitude}, ${site.geo.longitude}` },
+  ] as Array<Record<string, string>>;
+
+  if (keywords) {
+    metaTags.splice(2, 0, { name: "keywords", content: keywords });
+  }
+
   return {
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: new URL(image, site.website).href },
-      { property: "og:url", content: canonicalUrl },
-      { property: "og:site_name", content: "Andhra Mini Transport & Travels" },
-      { property: "og:locale", content: "en_IN" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
-      { name: "twitter:image", content: new URL(image, site.website).href },
-    ],
-    links: [
-      { rel: "canonical", href: canonicalUrl },
-    ],
+    meta: metaTags,
+    links: [{ rel: "canonical", href: canonicalUrl }],
   };
 }

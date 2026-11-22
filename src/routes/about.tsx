@@ -11,6 +11,8 @@ export const Route = createFileRoute("/about")({
       title: "About Andhra Mini Transport | Vizag Movers Since 1993",
       description:
         "Learn how Andhra Mini Transport grew from a family-run home shifting business in MVP Colony, Visakhapatnam, to a moving company serving routes across India.",
+      keywords:
+        "about Andhra Mini Transport, Vizag packers movers since 1993, trusted movers Visakhapatnam, Andhra Mini Transport history",
       canonicalPath: "/about",
     }),
   component: About,

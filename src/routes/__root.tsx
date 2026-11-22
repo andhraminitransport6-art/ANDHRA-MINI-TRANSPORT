@@ -82,6 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "application-name", content: "Andhra Mini Transport" },
+      { name: "theme-color", content: "#0a1931" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-title", content: "Andhra Mini Transport" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
