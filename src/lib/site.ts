@@ -110,8 +110,8 @@ export function localBusinessJsonLd() {
     foundingDate: String(site.established),
     telephone: site.phoneIntl,
     url: site.website,
-    image: `${site.website}/favicon.jpg`,
-    logo: `${site.website}/favicon.jpg`,
+    image: `${site.website}/og-image.jpg`,
+    logo: `${site.website}/logo.jpg`,
     description:
       "Andhra Mini Transport — trusted packers and movers in MVP Colony, Visakhapatnam since 1993. We handle household shifting, office relocation, vehicle transport and storage across India.",
     email: site.email,
@@ -238,7 +238,7 @@ export function pageMeta({
   title,
   description,
   keywords,
-  image = "/favicon.jpg",
+  image = "/og-image.jpg",
   canonicalPath,
 }: {
   title: string;

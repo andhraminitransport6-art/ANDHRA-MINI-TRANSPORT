@@ -79,7 +79,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-2 py-5 text-xs sm:flex-row sm:items-center sm:justify-between">
           <span>
-            &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+            &copy; 2027 {site.name}. All rights reserved.
           </span>
           <span className="text-gold">Trusted since {site.established} — Pan India Relocation</span>
         </div>
