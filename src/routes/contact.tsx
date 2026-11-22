@@ -9,11 +9,9 @@ import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta, site, telLink, whatsap
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageMeta({
-      title: "Contact Packers and Movers in Visakhapatnam | Andhra Mini Transport | 09440147473",
+      title: "Contact Andhra Mini Transport | MVP Colony, Vizag",
       description:
-        "Contact Andhra Mini Transport & Travels — Best Packers and Movers in Visakhapatnam. Call or WhatsApp 09440147473 for a free shifting quote. Office at MVP Colony, Vizag. Open 7 days, 8 AM to 8 PM.",
-      keywords:
-        "contact packers movers Visakhapatnam, Andhra Mini Transport phone number, movers address Vizag, moving company contact Visakhapatnam, shifting quote Vizag, packers movers helpline Visakhapatnam",
+        "Call 09440147473, message us on WhatsApp or find our MVP Colony office in Visakhapatnam. Our moving team is available daily from 8 AM to 8 PM.",
       canonicalPath: "/contact",
     }),
   component: Contact,
@@ -32,9 +30,9 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const businessHours = [
-  { day: "Monday â€“ Friday", hours: "8:00 AM â€“ 8:00 PM" },
-  { day: "Saturday", hours: "8:00 AM â€“ 8:00 PM" },
-  { day: "Sunday", hours: "8:00 AM â€“ 8:00 PM" },
+  { day: "Monday – Friday", hours: "8:00 AM – 8:00 PM" },
+  { day: "Saturday", hours: "8:00 AM – 8:00 PM" },
+  { day: "Sunday", hours: "8:00 AM – 8:00 PM" },
 ];
 
 function Contact() {
@@ -61,7 +59,7 @@ function Contact() {
 
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Contact")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", url: "/" },
@@ -75,7 +73,7 @@ function Contact() {
         <div className="container-page">
           <p className="eyebrow text-gold">Contact us</p>
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight text-white md:text-5xl">
-            Get in touch with our Visakhapatnam office
+            Contact Andhra Mini Transport in MVP Colony, Vizag
           </h1>
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75">
@@ -91,7 +89,7 @@ function Contact() {
           <div className="space-y-6">
             {/* WhatsApp */}
             <div className="border border-border bg-card p-7 shadow-card">
-              <h3 className="text-xl text-navy-deep">WhatsApp â€” fastest response</h3>
+              <h3 className="text-xl text-navy-deep">WhatsApp — fastest response</h3>
               <span className="gold-rule mt-4" />
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 Send your move details on WhatsApp and receive a response within the working day.

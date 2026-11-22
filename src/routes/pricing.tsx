@@ -21,7 +21,7 @@ const pricingFaqs = [
   {
     question: "How much does it cost to move a car or bike from Vizag to Hyderabad or Bangalore?",
     answer:
-      "Bike transport from Visakhapatnam to Hyderabad or Bangalore typically ranges between ₹2,500 to ₹5,500 depending on bike CC and crating. Car transportation via dedicated carriers ranges from ₹8,500 to ₹16,000 depending on sedan/SUV dimensions and transit insurance.",
+      "Bike transport from Visakhapatnam to Hyderabad or Bangalore typically ranges between ₹2,500 to ₹5,500 depending on bike CC and crating. Car transportation via dedicated carriers ranges from ₹8,500 to ₹17,000 depending on sedan/SUV dimensions and transit insurance.",
   },
   {
     question: "Do you offer free on-site moving cost estimates in Vizag?",
@@ -43,19 +43,17 @@ const priceMatrix = [
 export const Route = createFileRoute("/pricing")({
   head: () =>
     pageMeta({
-      title: "Get Free Packers Movers Quote in Visakhapatnam | Shifting Cost Vizag | Andhra Mini Transport",
+      title: "Packers and Movers Charges in Vizag | Andhra Mini Transport",
       description:
-        "Request a free relocation quote from Andhra Mini Transport & Travels, Visakhapatnam. Household shifting, vehicle transport, warehousing & corporate office moving. Transparent pricing, no hidden charges. WhatsApp or call 09440147473.",
-      keywords:
-        "packers movers cost Visakhapatnam, shifting charges Vizag, relocation quote Visakhapatnam, movers price Vizag, free shifting quote Visakhapatnam, household shifting cost Vizag, car transport price Visakhapatnam",
+        "Compare estimated 1, 2 and 3 BHK shifting costs in Vizag, intercity moving charges and vehicle transport rates. Request a free quote for your route and inventory.",
       canonicalPath: "/pricing",
     }),
   component: Pricing,
 });
 
 const moveTypes = [
-  "Household shifting â€” local (within Visakhapatnam)",
-  "Household shifting â€” long distance",
+  "Household shifting — local (within Visakhapatnam)",
+  "Household shifting — long distance",
   "Intercity or interstate relocation",
   "Vehicle transportation",
   "Warehousing and storage",
@@ -108,7 +106,7 @@ function Pricing() {
 
   return (
     <>
-            <JsonLd data={localBusinessJsonLd("Get a Quote")} />
+            <JsonLd data={localBusinessJsonLd()} />
       <JsonLd data={faqJsonLd(pricingFaqs)} />
       <JsonLd
         data={breadcrumbJsonLd([
@@ -123,13 +121,11 @@ function Pricing() {
         <div className="container-page">
           <p className="eyebrow text-gold">Get a quote</p>
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight text-white md:text-5xl">
-            Request a relocation quote
+            Packers and movers charges in Vizag
           </h1>
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75">
-            Fill in the form below and your details will be sent directly to our WhatsApp so we can
-            respond promptly. We do not use automated pricing â€” every quote is assessed by a
-            coordinator who understands the specifics of your move.
+            Compare the estimated charges below, then share your pickup address, destination and move size on WhatsApp. A coordinator will assess your move and prepare a quote.
           </p>
         </div>
       </section>
@@ -351,7 +347,7 @@ function Pricing() {
                 </p>
                 <p>
                   Every enquiry is followed by a quick call or in-person survey to understand what
-                  needs moving. The written quote we share after that survey is what you pay â€” no
+                  needs moving. The written quote we share after that survey is what you pay — no
                   adjustments on the day.
                 </p>
                 <p>
@@ -372,7 +368,7 @@ function Pricing() {
                   className="flex items-center gap-3 text-sm font-semibold text-navy-deep transition-colors hover:text-gold"
                 >
                   <MessageCircle className="h-4 w-4 text-gold" />
-                  WhatsApp â€” preferred for quick quotes
+                  WhatsApp — preferred for quick quotes
                 </a>
                 <a
                   href={telLink}

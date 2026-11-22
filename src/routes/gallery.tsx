@@ -1,29 +1,27 @@
 ﻿import { createFileRoute } from '@tanstack/react-router'
 import corporateImg from "@/assets/corporate.jpg";
 import heroImg from "@/assets/hero-truck.jpg";
-import hhPackImg from "@/assets/hh-packing.png";
-import hhLoadImg from "@/assets/hh-loading.png";
-import hhDeliverImg from "@/assets/hh-delivery.png";
-import intercityHighwayImg from "@/assets/intercity-highway.png";
-import intercityPlanningImg from "@/assets/intercity-planning.png";
-import intercityUnloadImg from "@/assets/intercity-unloading.png";
-import vehicleCarrierImg from "@/assets/vehicle-carrier.png";
-import vehicleLoadingImg from "@/assets/vehicle-loading.png";
-import warehouseInteriorImg from "@/assets/warehouse-interior.png";
-import warehouseInventoryImg from "@/assets/warehouse-inventory.png";
-import corporatePackImg from "@/assets/corporate-packing.png";
-import corporateLoadImg from "@/assets/corporate-loading.png";
+import hhPackImg from "@/assets/hh-packing.webp";
+import hhLoadImg from "@/assets/hh-loading.webp";
+import hhDeliverImg from "@/assets/hh-delivery.webp";
+import intercityHighwayImg from "@/assets/intercity-highway.webp";
+import intercityPlanningImg from "@/assets/intercity-planning.webp";
+import intercityUnloadImg from "@/assets/intercity-unloading.webp";
+import vehicleCarrierImg from "@/assets/vehicle-carrier.webp";
+import vehicleLoadingImg from "@/assets/vehicle-loading.webp";
+import warehouseInteriorImg from "@/assets/warehouse-interior.webp";
+import warehouseInventoryImg from "@/assets/warehouse-inventory.webp";
+import corporatePackImg from "@/assets/corporate-packing.webp";
+import corporateLoadImg from "@/assets/corporate-loading.webp";
 import { BreadcrumbNav, JsonLd, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta } from "@/lib/site";
 
 export const Route = createFileRoute("/gallery")({
   head: () =>
     pageMeta({
-      title: "Gallery | Andhra Mini Transport — Packers Movers Operations in Visakhapatnam",
+      title: "Packing and Moving Gallery | Andhra Mini Transport, Vizag",
       description:
-        "Photos of Andhra Mini Transport & Travels operations — household packing, vehicle loading, warehouse storage and long-distance transport trucks. Best packers and movers in Visakhapatnam, Andhra Pradesh.",
-      keywords:
-        "packers movers photos Visakhapatnam, moving company images Vizag, packing loading photos Visakhapatnam, household shifting images Vizag, car transport photos Visakhapatnam",
+        "Explore packing, loading, vehicle transport and storage in the Andhra Mini Transport gallery. See how each stage of a move works, from cartons to delivery.",
       canonicalPath: "/gallery",
     }),
   component: Gallery,
@@ -113,7 +111,7 @@ const galleryItems = [
 function Gallery() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Gallery")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", url: "/" },
@@ -127,13 +125,11 @@ function Gallery() {
         <div className="container-page">
           <p className="eyebrow text-gold">Gallery</p>
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight text-white md:text-5xl">
-            Packing, loading, storage and transport â€” the work we do
+            Packing and moving gallery
           </h1>
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75">
-            The images below show our operations across service types. This gallery is structured to
-            be updated with actual company photographs â€” each grid slot corresponds to a specific
-            service area.
+            Explore the stages of a move, from wrapping household goods and loading a vehicle carrier to storing cartons and setting up an office.
           </p>
         </div>
       </section>
@@ -143,12 +139,12 @@ function Gallery() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Our work"
-            title="Across service types and locations"
-            intro="Each image below represents a service category. Company photographs can be placed directly into these slots without changing the layout."
+            title="From packing cartons to unloading the truck"
+            intro="These illustrations show how household goods, vehicles and office equipment are handled at different stages of relocation."
           />
 
           {/*
-           * Gallery grid â€” swap-ready.
+           * Gallery grid — swap-ready.
            * Replace each src with a real company photo.
            * The grid uses a 1/2/3 column responsive layout.
            * Items with lg:col-span-2 span two columns on large screens for visual variety.
@@ -175,13 +171,8 @@ function Gallery() {
             ))}
           </div>
 
-          {/* Client photo swap note */}
-          <p className="mt-8 border border-dashed border-border p-5 text-sm leading-relaxed text-muted-foreground">
-            <span className="font-semibold text-navy-deep">For the client:</span> Replace the images
-            above with real company photographs by updating the{" "}
-            <code className="rounded bg-secondary px-1.5 py-0.5 text-xs">src/assets/</code>{" "}
-            directory. Each slot is 4:3 aspect ratio and at least 800px wide for best results. No
-            code changes are required.
+          <p className="mt-8 border border-border p-5 text-sm leading-relaxed text-muted-foreground">
+            Planning a move in Vizag? Include fragile furniture, vehicles and any storage needs in your enquiry so the team can plan packing and loading.
           </p>
         </div>
       </section>

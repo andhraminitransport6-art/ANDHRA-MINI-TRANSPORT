@@ -10,9 +10,9 @@ import {
   Truck,
 } from "lucide-react";
 import intercityImg from "@/assets/intercity.jpg";
-import intercityHighwayImg from "@/assets/intercity-highway.png";
-import intercityPlanningImg from "@/assets/intercity-planning.png";
-import intercityUnloadImg from "@/assets/intercity-unloading.png";
+import intercityHighwayImg from "@/assets/intercity-highway.webp";
+import intercityPlanningImg from "@/assets/intercity-planning.webp";
+import intercityUnloadImg from "@/assets/intercity-unloading.webp";
 import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, site, telLink, whatsappLink } from "@/lib/site";
 
@@ -39,11 +39,9 @@ const intercityFaqs = [
 export const Route = createFileRoute("/services/intercity-interstate")({
   head: () =>
     pageMeta({
-      title: "Intercity & Interstate Relocation from Visakhapatnam | Andhra Mini Transport",
+      title: "Intercity Packers and Movers from Vizag | Andhra Mini Transport",
       description:
-        "Door-to-door intercity and interstate relocation from Visakhapatnam to Hyderabad, Bangalore, Chennai, Pune, Delhi, Mumbai & all India. Single coordinator, full packing, real-time tracking. Trusted since 1993. Free quote on WhatsApp.",
-      keywords:
-        "intercity relocation Visakhapatnam, interstate movers Vizag, Vizag to Hyderabad packers movers, Vizag to Bangalore movers, Vizag to Chennai shifting, long distance movers Visakhapatnam, pan India relocation from Vizag, door to door moving Visakhapatnam",
+        "Plan a move from Visakhapatnam to Hyderabad, Bengaluru, Chennai or another Indian city. See how packing, route planning and delivery work for interstate moves.",
       canonicalPath: "/services/intercity-interstate",
     }),
   component: IntercityInterstate,
@@ -72,7 +70,7 @@ const serviceGallery = [
 
 const coverage = [
   "Door-to-door service from your current address to the new one, regardless of distance.",
-  "Coordination at both the origin and the destination â€” you do not need to arrange anything at the other end.",
+  "Coordination at both the origin and the destination — you do not need to arrange anything at the other end.",
   "Single point of contact throughout the entire move for updates and queries.",
   "Packing material, loading, transport and unloading are all included in the quoted scope.",
 ];
@@ -107,7 +105,7 @@ const processSteps = [
 function IntercityInterstate() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Intercity and Interstate Relocation")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={serviceJsonLd({
           name: "Intercity and Interstate Relocation from Visakhapatnam",
@@ -132,8 +130,8 @@ function IntercityInterstate() {
       />
       <PageHero
         eyebrow="Intercity and interstate relocation"
-        title="From Visakhapatnam to anywhere in India â€” one move, one team"
-        intro="Long-distance relocation is not just a longer drive. It requires route planning, coordination at both ends, and a single point of accountability. We provide all three."
+        title="Intercity and interstate packers and movers from Vizag"
+        intro="Move from Visakhapatnam to Hyderabad, Bengaluru, Chennai or another Indian city. A coordinator plans pickup, transport and unloading around your route and inventory."
         image={intercityImg}
         imageAlt="Transport truck on a national highway for long distance relocation"
       />

@@ -10,9 +10,9 @@ import {
   Truck,
 } from "lucide-react";
 import householdImg from "@/assets/household.jpg";
-import hhPackImg from "@/assets/hh-packing.png";
-import hhLoadImg from "@/assets/hh-loading.png";
-import hhDeliverImg from "@/assets/hh-delivery.png";
+import hhPackImg from "@/assets/hh-packing.webp";
+import hhLoadImg from "@/assets/hh-loading.webp";
+import hhDeliverImg from "@/assets/hh-delivery.webp";
 import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
 
@@ -39,11 +39,9 @@ const hsFaqs = [
 export const Route = createFileRoute("/services/household-shifting")({
   head: () =>
     pageMeta({
-      title: "Household Shifting in Visakhapatnam | Home Packers Movers Vizag | Andhra Mini Transport",
+      title: "House Shifting in Vizag | Andhra Mini Transport",
       description:
-        "Expert household shifting & home relocation services in Visakhapatnam (Vizag). Room-by-room packing, bubble wrap protection, careful loading and safe delivery at your new address. Local & long-distance. 30+ years experience. Call 09440147473.",
-      keywords:
-        "household shifting Visakhapatnam, home shifting Vizag, house relocation Visakhapatnam, local packers movers Vizag, residential shifting Visakhapatnam, home movers Vizag, furniture shifting Visakhapatnam, domestic relocation Vizag",
+        "Moving home in Visakhapatnam or to another city? Explore packing for furniture, appliances and fragile items, plus loading, delivery and room-by-room placement.",
       canonicalPath: "/services/household-shifting",
     }),
   component: HouseholdShifting,
@@ -74,7 +72,7 @@ const whatWePack = [
   {
     label: "Furniture",
     detail:
-      "Sofas, beds, wardrobes, dining sets â€” disassembled where required and reassembled at destination.",
+      "Sofas, beds, wardrobes, dining sets — disassembled where required and reassembled at destination.",
   },
   {
     label: "Kitchen and appliances",
@@ -123,7 +121,7 @@ const processSteps = [
 function HouseholdShifting() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Household Shifting")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={serviceJsonLd({
           name: "Household Shifting Services Visakhapatnam",
@@ -148,8 +146,8 @@ function HouseholdShifting() {
       />
       <PageHero
         eyebrow="Household shifting"
-        title="Your home, moved carefully from one address to the next"
-        intro="Whether you are moving within Visakhapatnam or relocating across India, we treat every item as if it were ours. The same team that packs handles the move."
+        title="House shifting in Vizag and beyond"
+        intro="Our household moving team packs furniture, appliances and fragile items, loads them for transport and places them room by room at your new address."
         image={householdImg}
         imageAlt="Packed household goods wrapped and ready for loading"
       />
@@ -159,7 +157,7 @@ function HouseholdShifting() {
         <div className="container-page">
           <SectionHeading
             eyebrow="What we handle"
-            title="Every room, every item â€” one coordinated move"
+            title="Every room, every item — one coordinated move"
             intro="We do not work from a fixed rate card. The survey defines exactly what needs to move, and the quote reflects that precisely."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">

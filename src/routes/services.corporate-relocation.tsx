@@ -10,8 +10,8 @@ import {
   Truck,
 } from "lucide-react";
 import corporateImg from "@/assets/corporate.jpg";
-import corporatePackImg from "@/assets/corporate-packing.png";
-import corporateLoadImg from "@/assets/corporate-loading.png";
+import corporatePackImg from "@/assets/corporate-packing.webp";
+import corporateLoadImg from "@/assets/corporate-loading.webp";
 import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, site, telLink, whatsappLink } from "@/lib/site";
 
@@ -34,11 +34,9 @@ const corpFaqs = [
 export const Route = createFileRoute("/services/corporate-relocation")({
   head: () =>
     pageMeta({
-      title: "Corporate & Office Relocation in Visakhapatnam | Business Movers Vizag | Andhra Mini Transport",
+      title: "Office Shifting in Vizag | Andhra Mini Transport",
       description:
-        "Professional corporate and office relocation in Visakhapatnam. After-hours scheduling, IT equipment packing, furniture moving and floor-plan placement to minimise business downtime. Trusted by businesses in Vizag since 1993.",
-      keywords:
-        "corporate relocation Visakhapatnam, office movers Vizag, office shifting Visakhapatnam, business relocation Vizag, commercial movers Visakhapatnam, IT relocation Vizag, office furniture movers Visakhapatnam, employee relocation Vizag",
+        "Plan an office move in Visakhapatnam around your working hours. Arrange workstation packing, lift access and furniture placement at the new office.",
       canonicalPath: "/services/corporate-relocation",
     }),
   component: CorporateRelocation,
@@ -69,7 +67,7 @@ const whatWeHandle = [
   {
     label: "Office furniture",
     detail:
-      "Desks, chairs, conference tables, partitions and storage units â€” disassembled, moved and reassembled.",
+      "Desks, chairs, conference tables, partitions and storage units — disassembled, moved and reassembled.",
   },
   {
     label: "IT and server equipment",
@@ -89,7 +87,7 @@ const whatWeHandle = [
 ];
 
 const approach = [
-  "Move execution is scheduled outside working hours â€” evenings, weekends or holidays â€” to avoid business disruption.",
+  "Move execution is scheduled outside working hours — evenings, weekends or holidays — to avoid business disruption.",
   "A floor plan of the new premises is taken in advance so furniture is placed once without repeated shifting.",
   "IT equipment is labelled by department and workstation to make reconnection straightforward.",
   "A single project coordinator handles the move, accessible to your office manager throughout the process.",
@@ -99,11 +97,11 @@ const approach = [
 function CorporateRelocation() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Corporate Relocation")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={serviceJsonLd({
           name: "Corporate Relocation and Office Shifting Visakhapatnam",
-          description: "Seamless office and corporate relocation services in Visakhapatnam with zero downtime, weekend scheduling, and IT packing.",
+          description: "Seamless office and corporate relocation services in Visakhapatnam with weekend scheduling and IT equipment packing.",
           url: "/services/corporate-relocation",
           serviceType: "Corporate Relocation",
         })}
@@ -124,8 +122,8 @@ function CorporateRelocation() {
       />
       <PageHero
         eyebrow="Corporate relocation"
-        title="Office moves planned to run outside business hours"
-        intro="A poorly executed office move costs more than the move itself. We plan the timing, sequencing and placement in advance so your team walks into a functional workplace."
+        title="Office shifting and corporate relocation in Vizag"
+        intro="We schedule the move around your working hours, pack IT equipment by workstation and place furniture according to the new office floor plan."
         image={corporateImg}
         imageAlt="Office furniture and equipment being prepared for corporate relocation"
       />
@@ -163,7 +161,7 @@ function CorporateRelocation() {
           <SectionHeading
             eyebrow="Our approach"
             title="Minimal downtime by design, not by luck"
-            intro="Every practice below is how we do corporate moves by default â€” not an upgrade."
+            intro="Every practice below is how we do corporate moves by default — not an upgrade."
           />
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {approach.map((a) => (

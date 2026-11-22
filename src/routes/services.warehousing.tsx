@@ -1,8 +1,8 @@
 ﻿import { createFileRoute } from "@tanstack/react-router";
 import { Archive, CheckCircle, ClipboardList, Lock, MessageCircle, Shield } from "lucide-react";
 import warehouseImg from "@/assets/warehouse.jpg";
-import warehouseInteriorImg from "@/assets/warehouse-interior.png";
-import warehouseInventoryImg from "@/assets/warehouse-inventory.png";
+import warehouseInteriorImg from "@/assets/warehouse-interior.webp";
+import warehouseInventoryImg from "@/assets/warehouse-inventory.webp";
 import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
 
@@ -29,11 +29,9 @@ const whFaqs = [
 export const Route = createFileRoute("/services/warehousing")({
   head: () =>
     pageMeta({
-      title: "Warehousing & Storage in Visakhapatnam | Secure Household Storage Vizag | Andhra Mini Transport",
+      title: "Warehousing and Storage in Vizag | Andhra Mini Transport",
       description:
-        "Secure short-term and long-term storage in Visakhapatnam (Vizag). Inventoried, access-controlled facilities for household goods, furniture & commercial goods. No damage, transparent rates. Available 7 days. Enquire now.",
-      keywords:
-        "warehousing Visakhapatnam, storage services Vizag, household storage Visakhapatnam, furniture storage Vizag, short term storage Visakhapatnam, long term storage Vizag, goods storage Visakhapatnam, secure storage Vizag",
+        "Arrange short-term or long-term storage in Visakhapatnam for household goods or business inventory. Explore packing, inventory records and collection options.",
       canonicalPath: "/services/warehousing",
     }),
   component: Warehousing,
@@ -77,16 +75,16 @@ const storageTypes = [
 
 const features = [
   "Goods are catalogued against a written inventory before storage begins.",
-  "Access is controlled and recorded â€” only authorised persons can retrieve goods.",
+  "Access is controlled and recorded — only authorised persons can retrieve goods.",
   "The facility is protected against moisture, pests and unauthorised entry.",
   "Retrieval can be arranged with prior notice, with or without redelivery.",
-  "Storage is charged transparently â€” you know the rate before goods go in.",
+  "Storage is charged transparently — you know the rate before goods go in.",
 ];
 
 function Warehousing() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Warehousing and Storage")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={serviceJsonLd({
           name: "Warehousing and Storage Services in Visakhapatnam",
@@ -111,8 +109,8 @@ function Warehousing() {
       />
       <PageHero
         eyebrow="Warehousing and storage"
-        title="Secure, inventoried storage for when your move is not ready yet"
-        intro="A gap between move-out and move-in is common. Rather than rushing or improvising, we hold your goods in a controlled facility until the destination is ready."
+        title="Warehousing and storage in Visakhapatnam"
+        intro="Store household goods between addresses or hold business stock for longer. Goods are recorded on arrival so you can identify what to collect when you need it."
         image={warehouseImg}
         imageAlt="Organised warehouse with stacked cartons and furniture in storage"
       />

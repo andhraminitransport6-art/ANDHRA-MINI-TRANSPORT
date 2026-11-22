@@ -64,7 +64,7 @@ export function PageHero({
           src={image}
           alt={imageAlt ?? ""}
           className="absolute inset-0 h-full w-full object-cover opacity-25"
-          loading="lazy"
+          fetchPriority="high"
         />
       )}
       <div className="absolute inset-0 bg-navy-deep/70" />

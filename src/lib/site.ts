@@ -95,7 +95,7 @@ export const services = [
   },
 ] as const;
 
-export function localBusinessJsonLd(pageName: string) {
+export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
@@ -107,7 +107,8 @@ export function localBusinessJsonLd(pageName: string) {
     url: site.website,
     image: `${site.website}/favicon.jpg`,
     logo: `${site.website}/favicon.jpg`,
-    description: `${site.tradingAs} — ${pageName}. Best packers and movers in Visakhapatnam, Andhra Pradesh. Trusted relocation company since 1993 offering household shifting, intercity relocation, vehicle transportation, corporate office moving and warehousing services across India. Rated 5.0 by 200+ satisfied customers.`,
+    description: "Family-run packers and movers in MVP Colony, Visakhapatnam, offering household shifting, office moves, vehicle transport and storage since 1993.",
+    email: site.email,
     priceRange: "₹₹",
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, Bank Transfer, UPI",
@@ -127,7 +128,7 @@ export function localBusinessJsonLd(pageName: string) {
     },
     hasMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.068300504791!2d83.32542347517312!3d17.741420683207394",
     areaServed: [
-      { "@type": "City", name: "Visakhapatnam" },
+      { "@type": "City", name: "Visakhapatnam", alternateName: "Vizag" },
       { "@type": "City", name: "Hyderabad" },
       { "@type": "City", name: "Bangalore" },
       { "@type": "City", name: "Chennai" },
@@ -136,40 +137,6 @@ export function localBusinessJsonLd(pageName: string) {
       { "@type": "City", name: "Mumbai" },
       { "@type": "Country", name: "India" },
     ],
-    serviceType: [
-      "Household Shifting",
-      "Packers and Movers",
-      "Intercity Relocation",
-      "Interstate Moving",
-      "Vehicle Transportation",
-      "Car Transport",
-      "Bike Transport",
-      "Warehousing",
-      "Storage Services",
-      "Corporate Relocation",
-      "Office Moving",
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating.value,
-      reviewCount: site.rating.reviewCount,
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: customerReviews.map((r) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: r.name,
-      },
-      datePublished: r.date,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: String(r.rating),
-        bestRating: "5",
-      },
-      reviewBody: r.text,
-    })),
     sameAs: [
       "https://www.google.com/maps/place/Andhra+Mini+Transport",
     ],
@@ -209,22 +176,8 @@ export function serviceJsonLd({
     description,
     url: `${site.website}${url}`,
     serviceType,
-    provider: {
-      "@type": "MovingCompany",
-      name: site.name,
-      telephone: site.phoneIntl,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: site.address.locality,
-        addressRegion: site.address.region,
-        addressCountry: site.address.country,
-      },
-    },
+    provider: { "@id": `${site.website}/#business` },
     areaServed: { "@type": "Country", name: "India" },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: `${name} Packages`,
-    },
   };
 }
 
@@ -245,42 +198,30 @@ export function pageMeta({
   title,
   description,
   image = "/favicon.jpg",
-  keywords,
-  canonicalPath = "/",
+  canonicalPath,
 }: {
   title: string;
   description: string;
   image?: string;
-  keywords?: string;
-  canonicalPath?: string;
+  canonicalPath: string;
 }) {
-  const canonicalUrl = `https://www.andhraminitransport.com${canonicalPath}`;
+  const canonicalUrl = `${site.website}${canonicalPath}`;
   return {
     meta: [
       { title },
       { name: "description", content: description },
-      ...(keywords ? [{ name: "keywords", content: keywords }] : []),
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
-      { name: "googlebot", content: "index, follow" },
-      { name: "geo.region", content: "IN-AP" },
-      { name: "geo.placename", content: "Visakhapatnam, Andhra Pradesh" },
-      { name: "geo.position", content: "17.7414;83.3254" },
-      { name: "ICBM", content: "17.7414, 83.3254" },
-      { name: "language", content: "English" },
-      { name: "revisit-after", content: "7 days" },
-      { name: "rating", content: "general" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: image },
+      { property: "og:image", content: new URL(image, site.website).href },
       { property: "og:url", content: canonicalUrl },
       { property: "og:site_name", content: "Andhra Mini Transport & Travels" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { name: "twitter:image", content: image },
-      { name: "twitter:site", content: "@AndhraMiniTransport" },
+      { name: "twitter:image", content: new URL(image, site.website).href },
     ],
     links: [
       { rel: "canonical", href: canonicalUrl },

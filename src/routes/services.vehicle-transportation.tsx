@@ -9,8 +9,8 @@ import {
   Truck,
 } from "lucide-react";
 import vehicleImg from "@/assets/vehicle.jpg";
-import vehicleCarrierImg from "@/assets/vehicle-carrier.png";
-import vehicleLoadingImg from "@/assets/vehicle-loading.png";
+import vehicleCarrierImg from "@/assets/vehicle-carrier.webp";
+import vehicleLoadingImg from "@/assets/vehicle-loading.webp";
 import { BreadcrumbNav, FaqSection, InfoCard, JsonLd, PageHero, QuoteCta, SectionHeading } from "@/components/site/Blocks";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, pageMeta, serviceJsonLd, whatsappLink } from "@/lib/site";
 
@@ -37,11 +37,9 @@ const vehicleFaqs = [
 export const Route = createFileRoute("/services/vehicle-transportation")({
   head: () =>
     pageMeta({
-      title: "Car & Bike Transport from Visakhapatnam | Vehicle Shifting Vizag | Andhra Mini Transport",
+      title: "Car and Bike Transport from Vizag | Andhra Mini Transport",
       description:
-        "Safe car and bike transport from Visakhapatnam to any city in India. Enclosed & open car carriers, tie-down secured loading, pre & post delivery inspection. Sedans, SUVs, motorcycles, scooters. Get a free quote today.",
-      keywords:
-        "car transport Visakhapatnam, bike transport Vizag, vehicle shifting Visakhapatnam, car carrier Vizag, two wheeler transport Visakhapatnam, car shipping Vizag, vehicle relocation Visakhapatnam, car transport Vizag to Hyderabad, bike transport Vizag to Bangalore",
+        "Arrange car or bike transport from Visakhapatnam. Learn how vehicles are inspected, secured on a carrier and checked at delivery before requesting a quote.",
       canonicalPath: "/services/vehicle-transportation",
     }),
   component: VehicleTransportation,
@@ -116,7 +114,7 @@ const processSteps = [
 function VehicleTransportation() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Vehicle Transportation")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={serviceJsonLd({
           name: "Car and Bike Transportation from Visakhapatnam",
@@ -141,8 +139,8 @@ function VehicleTransportation() {
       />
       <PageHero
         eyebrow="Vehicle transportation"
-        title="Cars and two-wheelers moved with the same care as household goods"
-        intro="Vehicles require specific carriers, proper securing and a condition inspection at both ends. We handle all three as standard practice."
+        title="Car and bike transport from Visakhapatnam"
+        intro="We record your vehicle’s condition at pickup, secure it for transport and check it again at handover. Share the make, model and destination for a carrier quote."
         image={vehicleImg}
         imageAlt="Car being loaded onto a vehicle carrier for long-distance transport"
       />
@@ -175,7 +173,7 @@ function VehicleTransportation() {
         <div className="container-page">
           <SectionHeading
             eyebrow="The process"
-            title="From booking to delivery â€” documented at every stage"
+            title="From booking to delivery — documented at every stage"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((s) => (

@@ -10,11 +10,9 @@ import { breadcrumbJsonLd, localBusinessJsonLd, pageMeta, services } from "@/lib
 export const Route = createFileRoute("/services/")({
   head: () =>
     pageMeta({
-      title: "Relocation Services in Visakhapatnam | Packers Movers Vizag | Andhra Mini Transport",
+      title: "Moving and Storage Services in Vizag | Andhra Mini Transport",
       description:
-        "Andhra Mini Transport & Travels offers 5 expert relocation services in Visakhapatnam: household shifting, intercity & interstate relocation, car & bike transport, warehousing and corporate office moving. Serving Pan-India since 1993.",
-      keywords:
-        "relocation services Visakhapatnam, moving services Vizag, packers movers services Andhra Pradesh, shifting services Vizag, household shifting intercity relocation vehicle transport warehousing corporate moving Visakhapatnam",
+        "Compare household shifting, office relocation, intercity moves, car and bike transport, and storage from Andhra Mini Transport in Visakhapatnam.",
       canonicalPath: "/services",
     }),
   component: ServicesIndex,
@@ -31,7 +29,7 @@ const images: Record<string, string> = {
 function ServicesIndex() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Services")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", url: "/" },
@@ -41,8 +39,8 @@ function ServicesIndex() {
       <BreadcrumbNav items={[{ label: "Services" }]} />
       <PageHero
         eyebrow="Our services"
-        title="Five ways we move what matters to you"
-        intro="Each service is staffed and quoted separately, so a two-bedroom home move and a full office relocation are never treated the same way."
+        title="Moving and storage services in Vizag"
+        intro="Choose a service for your move within Visakhapatnam or across India. Each guide explains what the team handles, how the work is scheduled and what to include in your quote request."
         image={intercityImg}
       />
 

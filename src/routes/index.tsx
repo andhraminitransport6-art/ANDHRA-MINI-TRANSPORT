@@ -32,11 +32,9 @@ import {
 export const Route = createFileRoute("/")({
   head: () =>
     pageMeta({
-      title: "Best Packers and Movers in Visakhapatnam | Andhra Mini Transport Since 1993",
+      title: "Packers and Movers in Vizag | Andhra Mini Transport",
       description:
-        "Andhra Mini Transport & Travels — Visakhapatnam's most trusted Packers and Movers since 1993. Household shifting, intercity relocation, car transport, office moving & warehousing across India. Rated 5.0 by 200+ customers. Get a free quote: 09440147473.",
-      keywords:
-        "packers and movers Visakhapatnam, packers and movers Vizag, best packers movers Vizag, household shifting Visakhapatnam, home relocation Vizag, intercity movers Visakhapatnam, car transport Vizag, office movers Visakhapatnam, affordable shifting Vizag, Andhra Mini Transport",
+        "Andhra Mini Transport Packers and Movers handles home and office moves in Visakhapatnam and across India. Call our MVP Colony team for a free moving quote.",
       canonicalPath: "/",
     }),
   component: Home,
@@ -80,14 +78,14 @@ const serviceCards = [
 
 const homeFaqs = [
   {
-    question: "Why is Andhra Mini Transport considered the best packers and movers in Visakhapatnam?",
+    question: "What does Andhra Mini Transport Packers and Movers do in Vizag?",
     answer:
-      "Established in 1993, Andhra Mini Transport & Travels brings over 30 years of uninterrupted relocation excellence in Visakhapatnam. With a 5.0-star rating across 200+ verified customer reviews, our family-owned business guarantees transparent pricing, dedicated single-point coordinators, trained in-house packing crews, and zero damage handling for local and pan-India moves.",
+      "From our MVP Colony office, we arrange local house shifting, interstate moves, office relocation, car and bike transport, and storage. Call 09440147473 or send your pickup and delivery details on WhatsApp for a quote.",
   },
   {
     question: "How much do local packers and movers cost in Visakhapatnam (Vizag)?",
     answer:
-      "Local shifting costs in Visakhapatnam typically range from ₹4,500 to ₹9,000 for a 1BHK, ₹7,000 to ₹14,000 for a 2BHK, and ₹11,000 to ₹22,000 for a 3BHK/Villa, depending on floor levels, elevator availability, fragile items, and distance within Vizag. We provide free, upfront, in-person or video quotes with no hidden charges.",
+      "Local shifting costs in Visakhapatnam typically range from ₹4,500 to ₹8,500 for a 1BHK, ₹7,500 to ₹13,500 for a 2BHK, and ₹12,000 to ₹22,000 for a 3BHK/Villa, depending on floor levels, elevator availability, fragile items, and distance within Vizag. We provide free, upfront, in-person or video quotes with no hidden charges.",
   },
   {
     question: "Which localities in Visakhapatnam do you provide packing and moving services in?",
@@ -114,12 +112,13 @@ const homeFaqs = [
 function Home() {
   return (
     <>
-      <JsonLd data={localBusinessJsonLd("Home")} />
+      <JsonLd data={localBusinessJsonLd()} />
       <JsonLd data={faqJsonLd(homeFaqs)} />
 
       <section className="relative min-h-[92vh] overflow-hidden">
         <img
           src={heroImg}
+          fetchPriority="high"
           alt="Movers loading wrapped household goods into a transport truck near Visakhapatnam"
           width={1920}
           height={1200}
@@ -127,14 +126,13 @@ function Home() {
         />
         <div className="absolute inset-0 bg-navy-deep/78" />
         <div className="container-page relative flex min-h-[92vh] flex-col justify-center pt-32 pb-20">
-          <p className="eyebrow text-gold">Established 1993 â€” Visakhapatnam</p>
+          <p className="eyebrow text-gold">Established 1993 — Visakhapatnam</p>
           <h1 className="mt-5 max-w-4xl text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-            Thirty years of moving homes and businesses across India, carefully.
+            Packers and movers in Vizag for homes and businesses
           </h1>
           <span className="gold-rule mt-7" />
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/75">
-            Andhra Mini Transport & Travels packs, transports and delivers household goods, office
-            setups and vehicles from our Visakhapatnam base to destinations nationwide.
+            Based in MVP Colony, Andhra Mini Transport Packers and Movers has served Visakhapatnam since 1993. We pack and move homes, offices, cars and bikes within Vizag and to cities across India.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -189,7 +187,7 @@ function Home() {
         <div className="container-page">
           <SectionHeading
             eyebrow="What we handle"
-            title="Relocation services built around what you are moving"
+            title="Home, office and vehicle moving services"
             intro="Every move is quoted after we understand the volume, distance and handling needs. Nothing is generic."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -244,7 +242,7 @@ function Home() {
         <div className="container-page">
           <SectionHeading
             eyebrow="How it works"
-            title="Four steps from first call to final delivery"
+            title="How your move works, from quote to delivery"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
